@@ -1,47 +1,28 @@
-<ng-container *ngIf="moviesData?.length; else emptyState">
-  <swiper
-    [slidesPerView]="3"
-    [spaceBetween]="20"
-    [navigation]="true"
-    [pagination]="{ clickable: true }"
-    class="mySwiper"
-  >
-    <ng-container *ngFor="let movie of moviesData">
-      <ng-template swiperSlide>
-        <div class="rounded-lg shadow bg-white cursor-pointer" (click)="openTrailer(movie)">
-          <img
-            [src]="movie.image"
-            [alt]="movie.title"
-            class="w-full h-72 object-cover rounded-t-lg"
-            (error)="onImageError($event)"
-          />
-          <div class="p-4">
-            <h2 class="text-lg font-semibold">{{ movie.title }}</h2>
-            <p class="text-sm text-gray-600 mt-2">{{ movie.release_date }}</p>
-          </div>
-        </div>
-      </ng-template>
-    </ng-container>
-  </swiper>
-</ng-container>
+<div class="movie-list-container">
+  
+  <p class="selected-movie" *ngIf="selectedMovie">
+    Película seleccionada: <strong>{{ selectedMovie }}</strong>
+  </p>
 
-<ng-template #emptyState>
-  <p class="text-center text-gray-500">No hay películas para mostrar.</p>
-</ng-template>
+  <div class="movies-grid">
+    <app-movie-item 
+      *ngFor="let movie of movies" 
+      [movie]="movie"
+      (movieSelected)="onMovieSelected($event)"
+      (trailerRequested)="openTrailer($event)">
+    </app-movie-item>
+  </div>
 
-<!-- Modal trailer -->
-<div
-  *ngIf="selectedTrailer"
-  class="fixed inset-0 bg-black bg-opacity-70 flex justify-center items-center z-50"
->
-  <div class="bg-white rounded-lg w-3/4 max-w-3xl p-4 relative">
-    <button (click)="closeTrailer()" class="absolute top-2 right-2 text-black text-xl">✖</button>
-    <iframe
-      width="100%"
-      height="400"
-      [src]="selectedTrailer | safeUrl"
-      frameborder="0"
-      allowfullscreen
-    ></iframe>
+  <!-- Modal de Trailer -->
+  <div class="trailer-modal" *ngIf="selectedTrailer" (click)="closeTrailer()">
+    <div class="trailer-content" (click)="$event.stopPropagation()">
+      <button class="close-btn" (click)="closeTrailer()">✕</button>
+      <iframe 
+        [src]="selectedTrailer | safe" 
+        frameborder="0" 
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+        allowfullscreen>
+      </iframe>
+    </div>
   </div>
 </div>
