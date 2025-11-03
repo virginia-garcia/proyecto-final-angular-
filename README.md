@@ -1,92 +1,59 @@
-🎬 MovieVault - Angular Movie App
-<img width="1319" height="511" alt="image" src="https://github.com/user-attachments/assets/2f5aa933-aa80-4212-ac24-b0f48f54e7d2" />
+# ProyectoFinal
 
+This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.3.7.
 
-MovieVault es una aplicación web en Angular que muestra un catálogo de películas con carrusel interactivo y modal de trailers de YouTube.
+## Development server
 
-🛠 Características
+To start a local development server, run:
 
-🎥 Visualización de un catálogo de películas con imágenes, títulos, fecha de estreno y descripción.
-
-🌀 Carrusel de películas usando Swiper.js.
-
-▶️ Modal para reproducir trailers al hacer click en cada película.
-
-🖼 Manejo de errores de imagen con placeholder.
-
-🔧 Uso de Standalone Components y Angular Pipes (SafeUrlPipe).
-
-💾 Servicio MovieService que simula datos de un API.
-
-📦 Tecnologías usadas
-
-Angular 16 (Standalone Components)
-
-TypeScript
-
-Swiper.js (carrusel)
-
-Tailwind CSS (opcional para estilos)
-
-Angular Pipes (SafeUrlPipe) para trailers seguros
-
-🚀 Instalación
-
-Clonar el repositorio:
-
-git clone <(https://github.com/virginia-garcia/proyecto-final-angular-.git)>
-cd movievault
-
-
-Instalar dependencias:
-
-npm install
-
-
-Instalar Swiper:
-
-npm install swiper
-
-
-Ejecutar la aplicación:
-
+```bash
 ng serve
+```
 
+Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
 
-La app estará disponible en http://localhost:4200.
+## Code scaffolding
 
-📂 Estructura del proyecto
-src/app/
- ├─ components/
- │    ├─ movies/             # Componente contenedor
- │    └─ movie-list/         # Componente de carrusel y modal
- ├─ interfaces/
- │    └─ movie.ts            # Interfaz Movie
- ├─ pipes/
- │    └─ safe-url.pipe.ts    # Pipe para reproducir trailers seguros
- └─ services/
-      └─ movie.service.ts    # Servicio que devuelve las películas
+Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
 
-🎯 Uso
+```bash
+ng generate component component-name
+```
 
-La página principal muestra un carrusel de películas.
+For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
 
-Haciendo click sobre cualquier película se abre un modal con el trailer.
+```bash
+ng generate --help
+```
 
-Si una imagen no carga, se muestra automáticamente un placeholder.
+## Building
 
-📝 Notas
+To build the project run:
 
-Las películas están cargadas de forma estática dentro del servicio MovieService.
+```bash
+ng build
+```
 
-Para usar trailers y datos reales, se puede integrar The Movie Database API (TMDB).
+This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
 
-💡 Mejoras futuras
+## Running unit tests
 
-Integración con API de TMDB para obtener datos en tiempo real.
+To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
 
-Filtros por género y búsqueda de películas.
+```bash
+ng test
+```
 
-Sistema de favoritos o puntuación.
+## Running end-to-end tests
 
-Mejorar responsividad y animaciones del carrusel.
+For end-to-end (e2e) testing, run:
+
+```bash
+ng e2e
+```
+
+Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+
+## Additional Resources
+
+For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
