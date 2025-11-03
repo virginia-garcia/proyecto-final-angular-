@@ -14,7 +14,7 @@ Permite visualizar información, imágenes y tráilers de películas utilizando 
 - **Node.js & npm** (para dependencias y ejecución)
 
 ---
-###⚙️ Instalación y ejecución
+### ⚙️ Instalación y ejecución
 
 1. **Clonar el repositorio**
    ```bash
@@ -23,10 +23,10 @@ Permite visualizar información, imágenes y tráilers de películas utilizando 
 2.npm install
 3.ng serve
 
-####Demo del proyecto 
+#### Demo del proyecto 
 https://drive.google.com/file/d/1_UwT7h1X931TRjxdk_bIncf7hPWNWlba/view?usp=sharing
 
-#####Proximas mejoras 
+##### Proximas mejoras 
 
 
 ✅ Agregar paginación y búsqueda por título.
@@ -34,5 +34,6 @@ https://drive.google.com/file/d/1_UwT7h1X931TRjxdk_bIncf7hPWNWlba/view?usp=shari
 ✅ Implementar autenticación de usuario.
 
 ✅ Desarrollar Pagina Generos 
+
 
 
