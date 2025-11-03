@@ -8,6 +8,7 @@ import { Component } from '@angular/core';
   styleUrl: './footer.css'
 })
 export class FooterComponent {
-  textoFooter: string = '© 2025 MovieHub - Todos los derechos reservados';
+  textoFooter: string = '© 2025 MovieVault - Todos los derechos reservados';
   
+
 }
