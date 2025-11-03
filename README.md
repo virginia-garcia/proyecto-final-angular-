@@ -43,7 +43,7 @@ Contiene un arreglo con las películas disponibles y sus datos: título, imagen,
 
 Retorna la lista mediante el método getMovies().
 ##### Demo del proyecto 
-https://drive.google.com/file/d/1_UwT7h1X931TRjxdk_bIncf7hPWNWlba/view?usp=sharing
+(https://drive.google.com/file/d/1awWJ3rGxt47Bjp4bd8V0MF65VNx925NR/view?usp=sharing)
 
 ###### Proximas mejoras 
 
@@ -53,6 +53,7 @@ https://drive.google.com/file/d/1_UwT7h1X931TRjxdk_bIncf7hPWNWlba/view?usp=shari
 ✅ Implementar autenticación de usuario.
 
 ✅ Desarrollar Pagina Generos 
+
 
 
 
