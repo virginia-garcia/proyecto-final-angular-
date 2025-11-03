@@ -9,5 +9,6 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
   styleUrl: './header.css'
 })
 export class HeaderComponent {
-  tituloApp: string = 'MovieHub';
+  tituloApp: string = 'MovieVault';
+
 }
