@@ -1,4 +1,5 @@
 🎬 MovieVault - Angular Movie App
+<img width="1360" height="768" alt="image" src="https://github.com/user-attachments/assets/1c450d5f-3064-40c8-bfa6-c9c1053a01ba" />
 
 MovieVault es una aplicación web en Angular que muestra un catálogo de películas con carrusel interactivo y modal de trailers de YouTube.
 
