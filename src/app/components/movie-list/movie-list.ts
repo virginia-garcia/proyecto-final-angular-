@@ -1,29 +1,43 @@
-import { Component, Input } from '@angular/core';
-import { Movie } from '../interfaces/movie';
-import { SwiperModule } from 'swiper/angular';
-import { SafeUrlPipe } from '../pipes/safe-url.pipe';
+import { Component, OnInit, Input } from '@angular/core';
+import { NgFor, NgIf } from '@angular/common';
+import { MovieItemComponent } from '../movie-item/movie-item';
+import { Movie } from '../../interfaces/movie';
+import { MovieService } from '../../services/movie';
+import { SafePipe } from '../../pipes/safe-url.pipe';
 
 @Component({
   selector: 'app-movie-list',
   standalone: true,
-  imports: [SwiperModule, SafeUrlPipe],
+  imports: [NgFor, NgIf, MovieItemComponent, SafePipe],
   templateUrl: './movie-list.html',
-  styleUrls: ['./movie-list.css']
+  styleUrls: ['./movie-list.css'] 
 })
-export class MovieListComponent {
+export class MovieListComponent implements OnInit {
+ 
   @Input() moviesData: Movie[] = [];
+
+  movies: Movie[] = [];
+  selectedMovie: string = '';
   selectedTrailer: string | null = null;
 
-  openTrailer(movie: Movie) {
-    this.selectedTrailer = movie.trailerUrl;
+  constructor(private movieService: MovieService) {}
+
+  ngOnInit(): void {
+    
+    this.movies = this.moviesData.length > 0 ? this.moviesData : this.movieService.getMovies();
   }
 
-  closeTrailer() {
+  onMovieSelected(movieTitle: string): void {
+    this.selectedMovie = movieTitle;
+  }
+
+  openTrailer(trailerUrl: string): void {
+    this.selectedTrailer = trailerUrl;
+  }
+
+  closeTrailer(): void {
     this.selectedTrailer = null;
   }
-
-  onImageError(event: Event) {
-    const target = event.target as HTMLImageElement;
-    target.src = 'assets/placeholder.jpg';
-  }
 }
+
+
