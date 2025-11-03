@@ -1,0 +1,55 @@
+<div class="series-container">
+  <h2>Series - Episodios</h2>
+
+  <div *ngIf="loading" class="loading">
+    <div class="spinner"></div>
+    <p>Cargando episodios...</p>
+  </div>
+
+  <div *ngIf="error" class="error">
+    <p>{{ error }}</p>
+  </div>
+
+  <div *ngIf="!loading && !error && episodes.length > 0" class="series-info">
+    <div class="series-header">
+      <img [src]="seriesPoster" alt="Póster de la serie" class="series-poster" *ngIf="seriesPoster">
+      <div class="series-title-info">
+        <h3>{{ seriesTitle }}</h3>
+        <p class="season-info">Temporada {{ season }}</p>
+      </div>
+    </div>
+    
+    <div class="episodes-grid">
+      <div *ngFor="let episode of episodes" class="episode-card">
+        <div class="episode-number">Ep. {{ episode.Episode }}</div>
+        <h4>{{ episode.Title }}</h4>
+        <p class="episode-date">📅 {{ episode.Released }}</p>
+        <p class="episode-rating">⭐ {{ episode.imdbRating }}</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="custom-search">
+    <h3>Buscar otra serie</h3>
+    <p class="search-hint">Prueba con: Breaking Bad, Stranger Things, The Office, Friends</p>
+    <div class="search-controls">
+      <input 
+        type="text" 
+        #seriesInput 
+        placeholder="Nombre de la serie"
+        class="search-input">
+      <input 
+        type="number" 
+        #seasonInput 
+        placeholder="Temporada"
+        min="1"
+        value="1"
+        class="search-input season-input">
+      <button 
+        (click)="loadCustomSeries(seriesInput.value, +seasonInput.value)"
+        class="search-btn">
+        🔍 Buscar
+      </button>
+    </div>
+  </div>
+</div>

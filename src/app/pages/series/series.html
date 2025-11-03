@@ -1,0 +1,34 @@
+<div class="series-page">
+  <div class="page-header">
+    <h1>Explora las mejores Series de TV</h1>
+    
+  </div>
+
+  @if (isLoading) {
+    <div class="loading-state">Cargando episodios...</div>
+  } @else if (errorMessage) {
+    <div class="error-state">{{ errorMessage }}</div>
+  } @else {
+    <h2 class="section-title">Episodios de la Temporada {{ episodes[0]?.Season || '1' }}</h2>
+    
+    <!-- Contenedor del Carrusel -->
+    <div class="series-carousel">
+      @for (episode of episodes; track episode.imdbID) {
+        <div class="series-card">
+          <div class="series-poster">
+            <!-- Usamos el Póster de la API -->
+            <img [src]="episode.Poster" [alt]="'Póster de ' + episode.Title" class="poster-image" loading="lazy">
+            <span class="rating-tag">⭐ {{ episode.imdbRating }}</span>
+          </div>
+          <div class="series-info">
+            <h3 class="series-title">{{ episode.Title }}</h3>
+            <p class="card-subtitle">Episodio {{ episode.Episode }} • Temporada {{ episode.Season }}</p>
+          </div>
+          <button class="details-button">Ver Episodio</button>
+        </div>
+      }
+    </div>
+  }
+</div>
+
+
